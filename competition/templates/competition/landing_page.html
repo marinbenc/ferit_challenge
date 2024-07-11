@@ -1,0 +1,98 @@
+{% extends 'competition/base.html' %}
+{% load markdownx_tags %}
+
+{% block title %}FERIT Challenge{% endblock %}
+
+{% block content %}
+<div class="full-width-bg bg-light py-5">
+  <div class="container">
+    <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
+      <div class="card-body">
+        <h1 class="card-title"><i class="fas fa-trophy"></i> Welcome to the FERIT Challenge</h1>
+        <p class="card-text">Compete in an all-play-all programming tournament where your code battles against
+          others.<br />
+          Submit your program to see how you rank on the leaderboard.</p>
+        <a href="{% url 'register' %}" class="btn modern-btn-primary btn-lg mx-2"><i class="fas fa-user-plus"></i> Sign
+          Up To Get Started</a>
+        <a href="{% url 'login' %}" class="btn modern-btn-outline-primary btn-lg mx-2"><i
+            class="fas fa-sign-in-alt"></i> Sign In</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-left mb-3">
+        <h5 class="underline-title"><i class="fas fa-cogs"></i> How Competing Works</h5>
+        <p class="card-text">Your code competes against others. Each match is an opportunity to climb the leaderboard
+          and prove your programming prowess.</p>
+      </div>
+      <div class="col-md-4 text-left mb-3">
+        <h5 class="underline-title"><i class="fas fa-user-graduate"></i> Eligibility</h5>
+        <p class="card-text">Only students enrolled in bachelor or master degree programs are eligible for prizes.</p>
+      </div>
+      <div class="col-md-4 text-left mb-3">
+        <h5 class="underline-title"><i class="fas fa-award"></i> Rewards</h5>
+        <p class="card-text">Compete for exciting prizes and the prestige of being the top coder at FERIT.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mb-5 mt-5 text-content">
+  <h5 class="underline-title">How to Compete</h5>
+  <div>
+    <p>Participating in the FERIT Challenge is straightforward and exciting. Here's how you can get involved:</p>
+    <ul>
+      <li>Submit your bot as a single Python (.py) file. The use of external libraries is restricted to numpy. If you
+        require additional libraries or prefer another language, please contact us for support.</li>
+      <li>Once your bot is submitted, it will be entered into an all-vs-all tournament. Each bot will compete against
+        every other bot multiple times to ensure fair results.</li>
+      <li>The leaderboard is based on the number of wins. The more matches your bot wins, the higher you will rank.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="container mb-5 text-content">
+  <h5 class="underline-title">Game Rules</h5>
+  <div class="d-flex">
+    <div>
+      <p>The competition is based on the following rules:</p>
+      <ul>
+        <li>Two players compete on a 5x5 board.</li>
+        <li>The central field in front of each player is special and represents the goal of the game.</li>
+        <li>Each player has 4 pawns and one king. The king is placed on the central field, and pawns are placed next to
+          it.</li>
+        <li>Each player draws 2 cards, and an additional card is drawn and placed in the center.</li>
+        <li>The cards specify possible moves. Like in chess, where a knight moves in an L shape and a bishop moves
+          diagonally, the cards in Onitama specify how a piece can move. Each move a player makes must be one of the
+          moves shown on one of their two cards.</li>
+        <li>Once a player uses a card, they replace it with the card in the center.</li>
+        <li>Similar to chess, opposing pieces can be captured.</li>
+        <li>Victory is achieved in one of two ways: either by capturing the opponent's king or by moving your king to
+          the opponent's central field.</li>
+      </ul>
+    </div>
+    <div class="ml-4" style="flex: 0 0 33.3333%;">
+      <div class="placeholder-block"
+        style="height: 300px; background-color: #ddd; text-align: center; line-height: 300px;">Game Board and Rules
+        Placeholder</div>
+      <div class="text-center mt-3">
+        <a href="#" class="btn modern-btn-outline-primary btn-sm"><i class="fas fa-book"></i> Detailed Game Rules and
+          Explanations</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="bg-light text-center py-5 my-5 border">
+  <h2 class="card-title">Ready to Compete?</h2>
+  <p class="mb-4">Sign up to join the competition or read the official rules to learn more about how it works.</p>
+  <a href="{% url 'register' %}" class="btn modern-btn-outline-primary btn-lg mx-2"><i class="fas fa-user-plus"></i>
+    Sign Up to Compete</a>
+  <a href="#" class="btn modern-btn-outline-secondary btn-lg mx-2"><i class="fas fa-book"></i> Read the Official
+    Rules</a>
+  <a href="#" class="btn modern-btn-outline-secondary btn-lg mx-2"><i class="fas fa-question-circle"></i> FAQ</a>
+</div>
+{% endblock %}

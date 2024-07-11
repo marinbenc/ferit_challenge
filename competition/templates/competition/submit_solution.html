@@ -1,0 +1,50 @@
+{% extends 'competition/base.html' %}
+{% load static %}
+{% load form_filters %}
+
+{% block title %}Submit Solution{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h1 class="h3 mb-3 font-weight-normal text-center">Submit Solution</h1>
+    <p class="text-center">
+      Acceptable formats: Must be a single .py file. Available libraries are all standard Python libraries and numpy.
+      Additional libraries and languages available upon request by sending an email to
+      <a href="mailto:marin.bencevic@ferit.hr">marin.bencevic@ferit.hr</a>.
+    </p>
+    <p class="text-center">
+      Results will be available after they have been reviewed. This usually happens within three working days. The
+      competitor will be notified via email.
+    </p>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="id_file">Upload your solution</label>
+        <div class="custom-file">
+          {{ form.file|add_class:"custom-file-input" }}
+          <label class="custom-file-label" for="id_file">Choose file</label>
+        </div>
+        {% if form.file.errors %}
+        <div class="invalid-feedback d-block">
+          {{ form.file.errors.0 }}
+        </div>
+        {% endif %}
+      </div>
+      <button type="submit" class="btn btn-lg btn-primary btn-block">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var fileInput = document.querySelector('.custom-file-input');
+    var fileLabel = document.querySelector('.custom-file-label');
+
+    fileInput.addEventListener('change', function (e) {
+      var fileName = e.target.files[0].name;
+      fileLabel.textContent = fileName;
+    });
+  });
+</script>
+{% endblock %}
