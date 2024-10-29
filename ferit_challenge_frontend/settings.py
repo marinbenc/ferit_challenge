@@ -142,5 +142,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 SESSION_COOKIE_HTTPONLY = True
 CSRF_COOKIE_HTTPONLY = True
 
+CSRF_TRUSTED_ORIGINS = ['https://marinbenc.pythonanywhere.com']
+
 CSRF_COOKIE_SECURE = False  # Set to True for production
 SESSION_COOKIE_SECURE = False  # Set to True for production
