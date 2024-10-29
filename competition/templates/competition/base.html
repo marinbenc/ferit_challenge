@@ -7,10 +7,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>{% block title %}FERIT Challenge{% endblock %}</title>
+  <title>{% block title %}FERIT Izazov — Zima 2024.{% endblock %}</title>
 
   <!-- Bootstrap core CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Prism.js CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
+
+  <!-- Prism.js JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <!-- Add the languages you need -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-c.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-cpp.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
   <!-- FontAwesome CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -19,7 +31,7 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'landing_page' %}">FERIT Challenge</a>
+      <a class="navbar-brand" href="{% url 'landing_page' %}">FERIT Izazov — Zima 2024.</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
         aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -27,24 +39,24 @@
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'landing_page' %}">Home</a>
+            <a class="nav-link" href="{% url 'landing_page' %}">Početna</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'leaderboard' %}">Leaderboard</a>
+            <a class="nav-link" href="{% url 'leaderboard' %}">Ljestvica</a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'submit_solution' %}">Submit Solution</a>
+            <a class="nav-link" href="{% url 'submit_solution' %}">Predaja algoritma</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <a class="nav-link" href="{% url 'logout' %}">Odjava</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'login' %}">Login</a>
+            <a class="nav-link" href="{% url 'login' %}">Prijava</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'register' %}">Register</a>
+            <a class="nav-link" href="{% url 'register' %}">Registracija</a>
           </li>
           {% endif %}
           <li class="nav-item dropdown">
@@ -53,9 +65,9 @@
               Info
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Competition Rules</a>
-              <a class="dropdown-item" href="#">Game Details</a>
-              <a class="dropdown-item" href="#">FAQ</a>
+              <a class="dropdown-item" href="{% url 'rules' %}">Službena pravila</a>
+              <a class="dropdown-item" href="{% url 'docs' %}">Tehnički detalji i predaja</a>
+              <a class="dropdown-item" href="{% url 'faq' %}">Često postavljena pitanja</a>
             </div>
           </li>
         </ul>
@@ -95,15 +107,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <p>Organized by FERIT, Osijek and the science popularization committee of FERIT, Studentski zbor of FERIT.</p>
+          <p>Organizatori: FERIT, Osijek; Povjerenstvo za popularizaciju znanosti FERIT-a; Studentski zbor FERIT-a.</p>
         </div>
         <div class="col-md-4">
-          <p>&copy; 2024 FERIT Challenge. All rights reserved.</p>
-          <p>Contact: <a href="mailto:info@ferit.hr" class="text-white">info@ferit.hr</a></p>
+          <p>&copy; 2024 FERIT</p>
+          <p>Kontakt: <a href="mailto:szbor@ferit.hr" class="text-white">szbor@ferit.hr</a></p>
         </div>
         <div class="col-md-4">
-          <p><a href="#" class="text-white">Privacy Policy</a></p>
-          <p><a href="#" class="text-white">Terms of Service</a></p>
+          <p><a href="https://www.ferit.unios.hr/fakultet/pravo-na-pristup-informacijama-i-zastita-osobnih-podataka"
+              class="text-white">Politika Privatnosti</a></p>
         </div>
       </div>
     </div>

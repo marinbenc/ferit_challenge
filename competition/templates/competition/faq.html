@@ -1,0 +1,102 @@
+{% extends 'competition/base.html' %}
+{% load markdownx_tags %}
+
+{% block title %}Često postavljena pitanja | FERIT Izazov 2024{% endblock %}
+
+{% block content %}
+<div class="full-width-bg bg-white py-5">
+  <div class="container">
+    <h2><i class="fas fa-question-circle"></i> Često postavljena pitanja</h2>
+
+    <div class="faq-section text-left">
+      <h3>1. Tko može sudjelovati u FERIT Izazovu 2024.?</h3>
+      <p>Svi studenti koji su trenutno upisani na hrvatska sveučilišta imaju pravo sudjelovati u natjecanju. Prilikom
+        prijave morate koristiti službenu e-mail adresu svojeg sveučilišta kako bismo mogli potvrditi vaš status
+        studenta.</p>
+
+      <h3>2. Mogu li surađivati s drugim sudionicima?</h3>
+      <p>Da, suradnja u smislu razmjene ideja i strategija je dozvoljena i potiče se. Međutim, svaki sudionik mora
+        predati vlastiti bot, a nagrade se dodjeljuju isključivo vlasniku računa pod kojim je predan bot.</p>
+
+      <h3>3. Kako mogu predati svoj bot?</h3>
+      <p>Nakon registracije, svoj bot možete predati putem službene platforme natjecanja. Predaja uključuje prijenos
+        datoteke s kodom vašeg bota, a platforma će automatski provjeriti je li bot u skladu s tehničkim pravilima
+        natjecanja. Pogledajte <a href="TODO-link-na-tehnicke-upute">tehničke upute</a> za detalje.</p>
+
+      <h3>4. Koje programske jezike mogu koristiti za implementaciju bota?</h3>
+      <p>Podržani programski jezici za izradu bota su:
+      <ul>
+        <li>Python</li>
+        <li>C++</li>
+        <li>C#</li>
+      </ul>
+      Sudionici moraju implementirati funkciju <code>guess_number</code> u jednom od navedenih jezika, prema pravilima
+      natjecanja.
+      </p>
+
+      <h3>5. Postoje li ograničenja u korištenju vanjskih biblioteka?</h3>
+      <p>Da, za natjecanje možete koristiti samo <strong>standardne biblioteke</strong> dostupne u navedenim jezicima.
+        Korištenje vanjskih biblioteka nije dozvoljeno osim ako nije izričito odobreno od strane organizatora. Za
+        dodatna pitanja, kontaktirajte nas na <a href="mailto:support@ferit.hr">support@ferit.hr</a>.</p>
+
+      <h3>6. Koje su tehničke specifikacije funkcije <code>guess_number</code>?</h3>
+      <p>Funkcija <code>guess_number</code> mora biti implementirana tako da prima povijest prethodnih poteza te vraća
+        cijeli broj između 0 i 100 kao sljedeći pokušaj. Pogledajte <a href="TODO-link-na-tehnicke-upute">tehničke
+          upute</a> za dodatne detalje o pravilima funkcije.</p>
+
+      <h3>7. Koliko verzija svog bota mogu predati?</h3>
+      <p>Možete predati neograničen broj verzija svog bota tijekom natjecanja, ali samo <strong>jedna verzija</strong>
+        može biti aktivna u bilo kojem trenutku.</p>
+
+      <h3>8. Kako funkcionira rangiranje na ljestvici?</h3>
+      <p>Ljestvica se temelji na bodovima koje vaš bot osvoji u igrama. Za svaku igru, pobjednički bot osvaja <strong>10
+          - broj rundi</strong> u kojima je pogođen točan broj. Ljestvica se automatski ažurira najkasnije svakih 60
+        minuta, osim u slučaju tehničkih poteškoća.</p>
+
+      <h3>9. Što se događa ako dođe do tehničkih problema tijekom natjecanja?</h3>
+      <p>U slučaju tehničkih poteškoća (poput prekida rada sustava, problema s poslužiteljem ili mrežom), organizatori
+        će poduzeti sve potrebne mjere kako bi se problem riješio što prije. Ako imate dodatna pitanja, kontaktirajte
+        nas na <a href="mailto:support@ferit.hr">support@ferit.hr</a>.</p>
+
+      <h3>10. Kako se prijavljuju nepravilnosti ili varanje?</h3>
+      <p>Ako primijetite bilo kakve nepravilnosti ili sumnjate da je neki sudionik varao, možete to prijaviti
+        organizatorima putem službenih kanala. Kontaktirajte nas na <a
+          href="mailto:anticheat@ferit.hr">anticheat@ferit.hr</a>.</p>
+
+      <h3>11. Kada će biti objavljeni konačni rezultati?</h3>
+      <p>Ljestvica će biti <strong>zamrznuta u trenutku završetka natjecanja</strong>. Nakon obrade svih rezultata,
+        konačna rang lista bit će objavljena, a dobitnici će biti obaviješteni putem e-maila s kojim su se registrirali.
+      </p>
+
+      <h3>12. Što ako moj bot ne prođe automatsku validaciju?</h3>
+      <p>Ako vaša predaja ne prođe automatsku validaciju, sustav će vas obavijestiti o razlogu odbijanja. U tom slučaju,
+        trebate ispraviti pogreške i ponovno predati bota. Više informacija o validaciji možete pronaći u <a
+          href="TODO-link-na-sluzbena-pravila">službenim pravilima</a>.</p>
+
+      <h3>13. Mogu li mijenjati bota nakon predaje?</h3>
+      <p>Da, možete predati novu verziju svog bota u bilo kojem trenutku tijekom natjecanja. Imajte na umu da u svakom
+        trenutku može biti aktivna samo jedna verzija bota.</p>
+
+      <h3>14. Kakav je sustav bodovanja u igri?</h3>
+      <p>Pobjednički bot u svakoj igri dobiva bodove prema formuli <strong>10 - broj rundi</strong> u kojima je došlo do
+        pogođanja točnog broja. U slučaju da se pogodak dogodi u zadnjoj rundi, bot dobiva 1 bod.</p>
+
+      <h3>15. Mogu li biti diskvalificiran?</h3>
+      <p>Da, organizatori zadržavaju pravo <strong>diskvalifikacije</strong> bilo kojeg sudionika ako se utvrdi varanje,
+        nepoštivanje pravila ili kršenje pravila intelektualnog vlasništva. Sve odluke o diskvalifikaciji donose se
+        nakon detaljne provjere.</p>
+
+      <h3>16. Što se događa s mojim kodom nakon natjecanja?</h3>
+      <p>Sudionici zadržavaju puno vlasništvo nad kodom koji predaju, ali sudjelovanjem u natjecanju, daju
+        organizatorima pravo na korištenje i evaluaciju koda tijekom natjecanja. Nakon završetka natjecanja,
+        organizatori neće više imati pravo koristiti vaš kod bez vašeg izričitog dopuštenja.</p>
+
+      <p>Ako imate dodatna pitanja ili trebate podršku, slobodno nas kontaktirajte putem službenih kanala:</p>
+      <ul>
+        <li><strong>Opća podrška:</strong> <a href="mailto:support@ferit.hr">support@ferit.hr</a></li>
+        <li><strong>Prijava nepravilnosti:</strong> <a href="mailto:anticheat@ferit.hr">anticheat@ferit.hr</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock %}

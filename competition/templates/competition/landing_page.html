@@ -1,21 +1,22 @@
 {% extends 'competition/base.html' %}
 {% load markdownx_tags %}
 
-{% block title %}FERIT Challenge{% endblock %}
+{% block title %}FERIT Izazov | Zima 2024.{% endblock %}
 
 {% block content %}
 <div class="full-width-bg bg-light py-5">
   <div class="container">
     <div class="card text-center shadow-lg p-3 mb-5 bg-white rounded">
       <div class="card-body">
-        <h1 class="card-title"><i class="fas fa-trophy"></i> Welcome to the FERIT Challenge</h1>
-        <p class="card-text">Compete in an all-play-all programming tournament where your code battles against
-          others.<br />
-          Submit your program to see how you rank on the leaderboard.</p>
-        <a href="{% url 'register' %}" class="btn modern-btn-primary btn-lg mx-2"><i class="fas fa-user-plus"></i> Sign
-          Up To Get Started</a>
+        <h1 class="card-title"><i class="fas fa-trophy"></i> Napravi najbolji algoritam za pogađanje broja!</h1>
+        <p class="card-text">FERIT Izazov 2024. je programersko natjecanje gdje se studentski algoritmi natječu jedan
+          protiv drugog u što bržem pogađanju broja.<br />
+          Upotrijebi svoja znanja iz programiranja, računarstva i logike. Predaj svoj program i osvoji vrijedne nagrade.
+        </p>
+        <a href="{% url 'register' %}" class="btn modern-btn-primary btn-lg mx-2"><i class="fas fa-user-plus"></i>
+          Registriraj se za početak sudjelovanja.</a>
         <a href="{% url 'login' %}" class="btn modern-btn-outline-primary btn-lg mx-2"><i
-            class="fas fa-sign-in-alt"></i> Sign In</a>
+            class="fas fa-sign-in-alt"></i> Prijava</a>
       </div>
     </div>
   </div>
@@ -23,63 +24,83 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 text-left mb-3">
-        <h5 class="underline-title"><i class="fas fa-cogs"></i> How Competing Works</h5>
-        <p class="card-text">Your code competes against others. Each match is an opportunity to climb the leaderboard
-          and prove your programming prowess.</p>
+        <h5 class="underline-title"><i class="fas fa-cogs"></i> Kako funkcionira natjecanje</h5>
+        <p class="card-text">Svrha je napraviti algoritam koji će što prije pogoditi broj od 0 do 100. Tvoj se
+          algoritam natječe sa svakim drugim algoritmom, a svaka je runda prilika da se popneš u ljestvici.</p>
       </div>
       <div class="col-md-4 text-left mb-3">
-        <h5 class="underline-title"><i class="fas fa-user-graduate"></i> Eligibility</h5>
-        <p class="card-text">Only students enrolled in bachelor or master degree programs are eligible for prizes.</p>
+        <h5 class="underline-title"><i class="fas fa-user-graduate"></i> Uvjeti natjecanja</h5>
+        <p class="card-text">Natjecanju smiju pristupiti samo studenti na hrvatskim sveučilištima, bilo prijediplomskih
+          ili poslijediplomskih studija.</p>
       </div>
       <div class="col-md-4 text-left mb-3">
-        <h5 class="underline-title"><i class="fas fa-award"></i> Rewards</h5>
-        <p class="card-text">Compete for exciting prizes and the prestige of being the top coder at FERIT.</p>
+        <h5 class="underline-title"><i class="fas fa-award"></i> Nagrade</h5>
+        <p class="card-text">Nagrade uključuju gamerske slušalice TODO.</p>
       </div>
     </div>
   </div>
 </div>
 
 <div class="container mb-5 mt-5 text-content">
-  <h5 class="underline-title">How to Compete</h5>
+  <h5 class="underline-title">Kako se natjecati</h5>
   <div>
-    <p>Participating in the FERIT Challenge is straightforward and exciting. Here's how you can get involved:</p>
+    <p>Sudjelovanje je jednostavno i pristupačno početnicima kao i stručnjacima. Evo kako se možeš priključiti:</p>
     <ul>
-      <li>Submit your bot as a single Python (.py) file. The use of external libraries is restricted to numpy. If you
-        require additional libraries or prefer another language, please contact us for support.</li>
-      <li>Once your bot is submitted, it will be entered into an all-vs-all tournament. Each bot will compete against
-        every other bot multiple times to ensure fair results.</li>
-      <li>The leaderboard is based on the number of wins. The more matches your bot wins, the higher you will rank.</li>
+      <li>Predaj svoj algoritam kao jednu Python, C/C++ ili C# datoteku. Dostupne su sve standardne biblioteke kao i
+        numpy u Pythonu. Ako trebate dodatne biblioteke ili preferirate drugi programski jezik, kontaktirajte nas. TODO
+      </li>
+      <li>Jednom kad je tvoj algoritam predan, sudjeluje u svi protiv svih turniru. Svaki algoritam natječe se s drugima
+        više puta i rezultati se pozbroje.</li>
+      <li>Ljestvica je temeljena na broju pobjeda. Što više rundi tvoj algoritam pobijedi, to je više tvoje mjesto na
+        ljestvici.</li>
     </ul>
   </div>
 </div>
 
 <div class="container mb-5 text-content">
-  <h5 class="underline-title">Game Rules</h5>
-  <div class="d-flex">
+  <h5 class="underline-title">Pravila igre</h5>
+  <div class="d-flex" style="padding-right: 15px;">
     <div>
-      <p>The competition is based on the following rules:</p>
       <ul>
-        <li>Two players compete on a 5x5 board.</li>
-        <li>The central field in front of each player is special and represents the goal of the game.</li>
-        <li>Each player has 4 pawns and one king. The king is placed on the central field, and pawns are placed next to
-          it.</li>
-        <li>Each player draws 2 cards, and an additional card is drawn and placed in the center.</li>
-        <li>The cards specify possible moves. Like in chess, where a knight moves in an L shape and a bishop moves
-          diagonally, the cards in Onitama specify how a piece can move. Each move a player makes must be one of the
-          moves shown on one of their two cards.</li>
-        <li>Once a player uses a card, they replace it with the card in the center.</li>
-        <li>Similar to chess, opposing pieces can be captured.</li>
-        <li>Victory is achieved in one of two ways: either by capturing the opponent's king or by moving your king to
-          the opponent's central field.</li>
+        <li>Dva igrača igraju turnir u kojem svaki igra protiv svakog.</li>
+        <li>Cilj igre je pogoditi zamišljeni broj između 0 i 100.</li>
+        <li>Igra se odvija u rundama; u svakoj rundi jedan igrač pogađa broj, zatim drugi igrač. Redoslijed se
+          izmjenjuje
+          svakom rundom.</li>
+        <li>Također, izmjenjuje se i tko prvi pogađa u svakoj utakmici kako bi igra bila balansirana.</li>
+        <li>Nakon svakog pogotka, oba igrača vide pogođeni broj i dobivaju informaciju je li zamišljeni broj veći ili
+          manji od
+          tog broja.</li>
+        <li>Pobjednik je igrač koji prvi pogodi zamišljeni broj.</li>
+        <li>Bodovi se dodjeljuju prema sljedećem principu: igrač koji pogodi broj dobije 10 bodova minus broj runde u
+          kojoj je
+          pogodio, s minimalno 1 bodom.</li>
+        <li>Igrači igraju ukupno 100 utakmica protiv svakog protivnika, a bodovi iz svih utakmica se zbrajaju za konačni
+          rezultat.</li>
+        <li>Svaki put kada se nova verzija algoritma učita, svi protivnici ponovno igraju protiv njega i ljestvica se
+          automatski osvježava.</li>
       </ul>
     </div>
     <div class="ml-4" style="flex: 0 0 33.3333%;">
-      <div class="placeholder-block"
-        style="height: 300px; background-color: #ddd; text-align: center; line-height: 300px;">Game Board and Rules
-        Placeholder</div>
+      <div class="game-example-block">
+        <p>Primjer jedne igre:</p>
+        <ul>
+          <li><strong>Igrač 1:</strong> Pogađa 50.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je veći.</li>
+          <li><strong>Igrač 2:</strong> Pogađa 75.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je manji.</li>
+          <li><strong>Igrač 1:</strong> Pogađa 60.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je veći.</li>
+          <li><strong>Igrač 2:</strong> Pogađa 65.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je manji.</li>
+          <li><strong>Igrač 1:</strong> Pogađa 63.</li>
+          <li><strong>Sustav:</strong> Pogođeno! Igrač 1 osvaja 5 bodova.</li>
+        </ul>
+      </div>
       <div class="text-center mt-3">
-        <a href="#" class="btn modern-btn-outline-primary btn-sm"><i class="fas fa-book"></i> Detailed Game Rules and
-          Explanations</a>
+        <a href="{% url 'docs' %}" class="btn modern-btn-outline-primary btn-sm"><i class="fas fa-book"></i> Detaljne
+          upute i
+          primjeri algoritma</a>
       </div>
     </div>
   </div>
@@ -87,12 +108,15 @@
 
 
 <div class="bg-light text-center py-5 my-5 border">
-  <h2 class="card-title">Ready to Compete?</h2>
-  <p class="mb-4">Sign up to join the competition or read the official rules to learn more about how it works.</p>
+  <h2 class="card-title">Spreman za natjecanje?</h2>
+  <p class="mb-4">Registriraj se i prati korake za dodavanje svog algoritma.</p>
   <a href="{% url 'register' %}" class="btn modern-btn-outline-primary btn-lg mx-2"><i class="fas fa-user-plus"></i>
-    Sign Up to Compete</a>
-  <a href="#" class="btn modern-btn-outline-secondary btn-lg mx-2"><i class="fas fa-book"></i> Read the Official
-    Rules</a>
-  <a href="#" class="btn modern-btn-outline-secondary btn-lg mx-2"><i class="fas fa-question-circle"></i> FAQ</a>
+    Registriraj se</a>
+  <a href="{% url 'rules' %}" class="btn modern-btn-outline-secondary btn-lg mx-2"><i class="fas fa-book"></i> Pročitaj
+    službena
+    pravila</a>
+  <a href="{% url 'faq' %}" class="btn modern-btn-outline-secondary btn-lg mx-2"><i class="fas fa-question-circle"></i>
+    Često
+    postavljena pitanja</a>
 </div>
 {% endblock %}

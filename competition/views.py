@@ -78,6 +78,15 @@ def landing_page(request):
     content = LandingPage.objects.first()
     return render(request, 'competition/landing_page.html', {'content': content})
 
+def faq(request):
+    return render(request, 'competition/faq.html')
+
+def rules(request):
+    return render(request, 'competition/rules.html')
+
+def docs(request):
+    return render(request, 'competition/docs.html')
+
 @csrf_protect
 def register(request):
     if request.method == 'POST':

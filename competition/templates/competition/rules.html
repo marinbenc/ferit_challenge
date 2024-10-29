@@ -1,0 +1,65 @@
+{% extends 'competition/base.html' %}
+{% load markdownx_tags %}
+
+{% block title %}Službena pravila | FERIT Izazov 2024{% endblock %}
+
+{% block content %}
+<div class="full-width-bg bg-white py-5">
+  <div class="container">
+    <h1 class="text-center"><i class="fas fa-book"></i> Službena pravila</h1>
+
+    <div class="faq-section text-left">
+      <h3>1. Uvod</h3>
+      <p><strong>FERIT Izazov 2024.</strong> je online programersko natjecanje koje organiziraju <strong>FERIT
+          Osijek</strong>, <strong>Povjerenstvo za popularizaciju znanosti FERIT-a</strong> i <strong>Studentski zbor
+          FERIT-a</strong>. U ovom natjecanju studenti pišu algoritme (botove) koji se natječu međusobno u što bržem
+        pogađanju nasumično odabranog broja između 0 i 100. Natjecanje traje od <strong>[TODO: datum početka]</strong>
+        do <strong>[TODO: datum završetka]</strong> u ponoć.</p>
+
+      <h3>2. Pravo sudjelovanja</h3>
+      <p>Pravo sudjelovanja imaju svi studenti hrvatskih sveučilišta. Prilikom prijave morate koristiti službenu e-mail
+        adresu svojeg sveučilišta kako bismo mogli potvrditi vaš status studenta. Svaki sudionik može prijaviti samo
+        jedan aktivni bot u bilo kojem trenutku natjecanja.</p>
+
+      <h3>3. Predaja bota</h3>
+      <p>Svoj bot možete predati putem web platforme natjecanja. Bot mora implementirati funkciju
+        <code>guess_number</code> prema specificiranim pravilima. Predaja uključuje prijenos datoteke s kodom bota.
+        Pogledajte <a href="TODO-link-na-tehnicke-upute">tehničke upute</a> za detalje o specifikacijama.
+      </p>
+
+      <h3>4. Pravila igre</h3>
+      <p>Svaka igra sastoji se od dva bota koji naizmjenično pogađaju broj između 0 i 100. Nakon svakog pogotka, sustav
+        pruža povratnu informaciju o tome je li broj manji ili veći od traženog broja. Pobjednik je bot koji prvi pogodi
+        točan broj. Bodovi se dodjeljuju prema formuli: <strong>10 - broj rundi</strong> u kojima je pogodak postignut.
+      </p>
+
+      <h3>5. Rangiranje i bodovanje</h3>
+      <p>Rang lista se ažurira svakih 60 minuta, a bodovi se temelje na osvojenim igrama. Pobjednički bot osvaja bodove
+        prema formuli <strong>10 - broj rundi</strong> u kojima je pogođen broj. Ljestvica se zamrzava u trenutku kraja
+        natjecanja, a rezultati će biti objavljeni nakon konačne obrade.</p>
+
+      <h3>6. Varanje i provjera</h3>
+      <p>Organizatori zadržavaju pravo ručne provjere u slučaju sumnje na varanje ili kršenje pravila. Ako se utvrdi
+        nepravilnost ili varanje, sudionik može biti diskvalificiran.</p>
+
+      <h3>7. Intelektualno vlasništvo</h3>
+      <p>Sudionici zadržavaju puno vlasništvo nad kodom koji predaju tijekom natjecanja. Organizatori ne polažu nikakva
+        prava na predane radove sudionika osim prava na evaluaciju i provođenje natjecanja. Pogledajte <a
+          href="TODO-link-na-pravila-vlasnistva">pravila o intelektualnom vlasništvu</a> za dodatne informacije.</p>
+
+      <h3>8. Odricanje od odgovornosti</h3>
+      <p>U slučaju tehničkih problema, organizatori će poduzeti sve potrebne mjere kako bi se natjecanje nastavilo što
+        prije. Organizatori nisu odgovorni za bilo kakvu neovlaštenu uporabu ili izmjenu koda sudionika.</p>
+
+      <h3>9. Pravo na izmjene pravila</h3>
+      <p>Organizatori zadržavaju pravo izmjene pravila tijekom trajanja natjecanja kako bi osigurali pravednost i
+        nesmetano odvijanje natjecanja. Sve izmjene pravila bit će najavljene sudionicima putem službenih kanala.</p>
+
+      <h3>10. Zaključak natjecanja</h3>
+      <p>Natjecanje završava na <strong>[TODO datum]</strong> u ponoć. Nakon toga, neće biti moguće predavati nove
+        verzije bota. Završna rang lista bit će objavljena nakon što se obrade svi rezultati. Sudionici će biti
+        obaviješteni putem e-maila.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,451 @@
+{% extends 'competition/base.html' %}
+{% load markdownx_tags %}
+
+{% block title %}Tehnički detalji i predaja | FERIT Izazov 2024{% endblock %}
+
+{% block content %}
+<div class="full-width-bg bg-white py-5">
+  <div class="container">
+    <h1 class="text-center"><i class="fas fa-cogs"></i> Izrada algoritma</h1>
+
+    <div class="faq-section text-left">
+      <h2>Cilj igre</h2>
+      <p>Cilj igre je osmisliti algoritam koji će najbrže pogoditi zamišljeni broj između 0 i 100. Svaki algoritam
+        dobiva povratne informacije o tome je li prethodni pokušaj bio prevelik ili premalen te na temelju tih
+        informacija donosi odluku o sljedećem pokušaju.</p>
+
+      <h2>Kako sudjelovati</h2>
+      <p>Da biste sudjelovali u natjecanju, potrebno je implementirati funkciju <code>guess_number</code> koja prima
+        povijest
+        pokušaja i vraća sljedeći broj između 0 i 100 na temelju te povijesti. Pogledajte primjere za svaki jezik u
+        tabovima
+        ispod:</p>
+
+      <ul class="nav nav-tabs" id="participationTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="python-participation-tab" data-toggle="tab" href="#python-participation"
+            role="tab" aria-controls="python-participation" aria-selected="true">Python</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="cpp-participation-tab" data-toggle="tab" href="#cpp-participation" role="tab"
+            aria-controls="cpp-participation" aria-selected="false">C++</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="csharp-participation-tab" data-toggle="tab" href="#csharp-participation" role="tab"
+            aria-controls="csharp-participation" aria-selected="false">C#</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="participationTabContent">
+        <!-- Python tab -->
+        <div class="tab-pane fade show active" id="python-participation" role="tabpanel"
+          aria-labelledby="python-participation-tab">
+          <p>U Pythonu, funkcija <code>guess_number</code> prima listu koja sadrži povijest svih prethodnih pokušaja i
+            vraća
+            broj između 0 i 100.</p>
+          <p><strong>Parametri:</strong></p>
+          <ul>
+            <li><code>history</code>: Lista tupleova oblika <code>(int player, int guess, int response)</code>:
+              <ul>
+                <li><code>player</code> (<code>int</code>): Broj igrača koji je napravio pokušaj (0 ili 1).</li>
+                <li><code>guess</code> (<code>int</code>): Broj koji je igrač pokušao pogoditi (između 0 i 100).</li>
+                <li><code>response</code> (<code>int</code>): Povratna informacija o tome je li broj bio veći ili
+                  manji:
+                  <ul>
+                    <li><code>-1</code>: Zamišljeni broj je manji od pokušaja.</li>
+                    <li><code>1</code>: Zamišljeni broj je veći od pokušaja.</li>
+                    <li><code>0</code>: Pokušaj je točan.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <p><strong>Povratna vrijednost:</strong> Broj između 0 i 100 koji predstavlja vaš sljedeći pokušaj.</p>
+          <pre><code class="language-python">def guess_number(history):
+    """
+    Ovdje implementirajte svoj algoritam.
+    Parametri:
+    - history: Lista prethodnih pokušaja [(int player, int guess, int response)]
+    
+    Return:
+    - Broj između 0 i 100 kao vaš sljedeći pokušaj.
+    """
+    # Primjer dohvaćanja zadnjeg pokušaja
+    if history:
+        last_player = history[-1][0]  # Igrač koji je napravio zadnji pokušaj
+        last_guess = history[-1][1]   # Zadnji pogođeni broj
+        last_response = history[-1][2]  # Povratna informacija
+        # Ovdje implementirajte svoj algoritam koristeći povijest
+    return 50  # Ova vrijednost je fiksna, zamijenite je svojim algoritmom.
+</code></pre>
+        </div>
+
+        <!-- C++ tab -->
+        <div class="tab-pane fade" id="cpp-participation" role="tabpanel" aria-labelledby="cpp-participation-tab">
+          <p>U C++, funkcija <code>guess_number</code> prima niz struktura koje predstavljaju povijest pokušaja i
+            vraća
+            broj
+            između 0 i 100.</p>
+          <p><strong>Struktura podataka:</strong></p>
+          <pre><code class="language-cpp">struct Guess {
+    int player;   // Igrač (0 ili 1)
+    int guess;    // Pogađani broj (0 do 100)
+    int response; // Povratna informacija: -1 (manji), 1 (veći), 0 (točno)
+};</code></pre>
+          <p><strong>Parametri:</strong></p>
+          <ul>
+            <li><code>history[]</code>: Niz struktura <code>Guess</code> koji sadrži povijest svih prethodnih
+              pokušaja.
+            </li>
+            <li><code>history_length</code> (<code>int</code>): Duljina povijesti.</li>
+          </ul>
+          <p><strong>Povratna vrijednost:</strong> Broj između 0 i 100 koji predstavlja vaš sljedeći pokušaj.</p>
+          <pre><code class="language-cpp">int guess_number(Guess history[], int history_length) {
+    // Ovdje implementirajte svoj algoritam.
+    if (history_length > 0) {
+        int last_player = history[history_length - 1].player;   // Igrač koji je zadnji pogađao
+        int last_guess = history[history_length - 1].guess;     // Zadnji pogađani broj
+        int last_response = history[history_length - 1].response; // Povratna informacija
+        // Ovdje implementirajte svoj algoritam koristeći povijest
+    }
+    return 50;  // Ova vrijednost je fiksna, zamijenite je svojim algoritmom.
+}
+</code></pre>
+        </div>
+
+        <!-- C# tab -->
+        <div class="tab-pane fade" id="csharp-participation" role="tabpanel" aria-labelledby="csharp-participation-tab">
+          <p>U C#, funkcija <code>guess_number</code> prima listu objekata <code>Guess</code> i vraća broj između 0 i
+            100.</p>
+          <p><strong>Struktura podataka:</strong></p>
+          <pre><code class="language-csharp">public struct Guess {
+    public int Player;       // Igrač (0 ili 1)
+    public int GuessNumber;  // Pogađani broj (0 do 100)
+    public int Response;     // Povratna informacija: -1 (manji), 1 (veći), 0 (točno)
+}</code></pre>
+          <p><strong>Parametri:</strong></p>
+          <ul>
+            <li><code>history</code>: Lista objekata <code>Guess</code> koji sadrže povijest svih prethodnih pokušaja.
+            </li>
+          </ul>
+          <p><strong>Povratna vrijednost:</strong> Broj između 0 i 100 koji predstavlja vaš sljedeći pokušaj.</p>
+          <pre><code class="language-csharp">public static int guess_number(List&lt;Guess&gt; history) {
+    // Ovdje implementirajte svoj algoritam.
+    if (history.Count > 0) {
+        int lastPlayer = history[history.Count - 1].Player;  // Igrač koji je zadnji pogađao
+        int lastGuess = history[history.Count - 1].GuessNumber; // Zadnji pogađani broj
+        int lastResponse = history[history.Count - 1].Response; // Povratna informacija
+        // Ovdje implementirajte svoj algoritam koristeći povijest
+    }
+    return 50;  // Ova vrijednost je fiksna, zamijenite je svojim algoritmom.
+}
+</code></pre>
+        </div>
+      </div>
+
+
+      <p>Morate predati file u kojem je jasno vidljiva funkcija <code>guess_number</code>, zajedno s potrebnim
+        importima
+        ili includeovima u vašem jeziku. Ako vaša implementacija uzrokuje grešku tijekom izvršavanja, bit ćete
+        obaviješteni putem e-maila.</p>
+
+      <h2>Kako testirati svoj algoritam</h2>
+      <p>Da biste testirali svoj algoritam prije predaje, možete koristiti sljedeći kod. Ovaj blok koda simulira
+        nekoliko igara u kojima se vaš algoritam natječe protiv baseline algoritma. Koristite ga kako biste vidjeli
+        kako
+        se vaš algoritam ponaša u stvarnim uvjetima.</p>
+
+      <!-- Bootstrap tabs for language examples -->
+      <ul class="nav nav-tabs" id="codeTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="python-tab" data-toggle="tab" href="#python" role="tab" aria-controls="python"
+            aria-selected="true">Python</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="cpp-tab" data-toggle="tab" href="#cpp" role="tab" aria-controls="cpp"
+            aria-selected="false">C++</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="csharp-tab" data-toggle="tab" href="#csharp" role="tab" aria-controls="csharp"
+            aria-selected="false">C#</a>
+        </li>
+      </ul>
+
+      <div class="tab-content" id="codeTabContent">
+        <!-- Python tab -->
+        <div class="tab-pane fade show active" id="python" role="tabpanel" aria-labelledby="python-tab">
+          <p>Sljedeći kod možete pokrenuti u Pythonu kako biste testirali svoj algoritam protiv baseline algoritma.
+            <strong>Važno:</strong> U funkciji <code>guess_number</code> zamijenite fiksni broj svojim algoritmom:
+          </p>
+          <pre><code class="language-python">import random
+
+def guess_number(history):
+    """
+    Ovdje implementirajte svoj algoritam za pogađanje broja.
+    Parametri:
+    - history: Lista prethodnih pokušaja [(int player, int guess, int response)]
+    Return: Broj između 0 i 100.
+    """
+    if not history:  # Ako nema povijesti, počni s 50
+        return 50
+    
+    last_guess = history[-1][1]
+    feedback = history[-1][2]
+
+    if feedback == -1:
+        return max(0, last_guess - 10)
+    elif feedback == 1:
+        return min(100, last_guess + 10)
+
+    return last_guess
+
+def guess_number_opponent(history):
+    low, high = 0, 100
+    for _, guess, response in history:
+        if response == -1:
+            high = guess - 1
+        elif response == 1:
+            low = guess + 1
+    return (low + high) // 2
+
+def play_game(player1, player2):
+    target = random.randint(0, 100)
+    history = []
+    rounds = 0
+    while True:
+        rounds += 1
+        guess1 = player1(history)
+        history.append((0, guess1, 1 if guess1 < target else -1 if guess1 > target else 0))
+        if guess1 == target:
+            return 10 - rounds
+
+        guess2 = player2(history)
+        history.append((1, guess2, 1 if guess2 < target else -1 if guess2 > target else 0))
+        if guess2 == target:
+            return -(10 - rounds)
+
+def simulate_games():
+    player1_score = 0
+    opponent_score = 0
+    for i in range(50):
+        player1_score += play_game(guess_number, guess_number_opponent)
+        opponent_score += -play_game(guess_number_opponent, guess_number)
+    
+    print(f"Player 1 score: {player1_score}")
+    print(f"Opponent score: {opponent_score}")
+
+simulate_games()
+</code></pre>
+        </div>
+
+        <!-- C++ tab -->
+        <div class="tab-pane fade" id="cpp" role="tabpanel" aria-labelledby="cpp-tab">
+          <p>Sljedeći kod možete pokrenuti u C++ kako biste testirali svoj algoritam protiv baseline algoritma.
+            <strong>Važno:</strong> U funkciji <code>guess_number</code> zamijenite trenutni algoritam svojim:
+          </p>
+          <pre><code class="language-cpp">#include &lt;iostream&gt;
+#include &lt;cstdlib&gt;
+#include &lt;ctime&gt;
+
+struct Guess {
+    int player;
+    int guess;
+    int response;
+};
+
+int guess_number(Guess history[], int history_length) {
+    // Ovdje implementirajte svoj algoritam za pogađanje broja.
+    if (history_length == 0) {
+        return 50;  // Prvi pokušaj je sredina
+    }
+
+    int last_guess = history[history_length - 1].guess;
+    int feedback = history[history_length - 1].response;
+
+    if (feedback == -1) {
+        return (last_guess - 10 > 0) ? last_guess - 10 : 0;
+    } else if (feedback == 1) {
+        return (last_guess + 10 < 100) ? last_guess + 10 : 100;
+    }
+
+    return last_guess;
+}
+
+int guess_number_opponent(Guess history[], int history_length) {
+    int low = 0, high = 100;
+    for (int i = 0; i < history_length; ++i) {
+        int guess = history[i].guess;
+        int response = history[i].response;
+        if (response == -1) {
+            high = guess - 1;
+        } else if (response == 1) {
+            low = guess + 1;
+        }
+    }
+    return (low + high) / 2;
+}
+
+int play_game(int (*player1)(Guess[], int), int (*player2)(Guess[], int)) {
+    int target = rand() % 101;
+    Guess history[200];
+    int history_length = 0;
+    int rounds = 0;
+
+    while (true) {
+        rounds++;
+        int guess1 = player1(history, history_length);
+        history[history_length++] = {0, guess1, (guess1 < target ? 1 : (guess1 > target ? -1 : 0))};
+        if (guess1 == target) {
+            return 10 - rounds;
+        }
+
+        int guess2 = player2(history, history_length);
+        history[history_length++] = {1, guess2, (guess2 < target ? 1 : (guess2 > target ? -1 : 0))};
+        if (guess2 == target) {
+            return -(10 - rounds);
+        }
+    }
+}
+
+int main() {
+    srand(time(0));
+
+    int player1_score = 0;
+    int opponent_score = 0;
+
+    for (int i = 0; i < 50; i++) {
+        player1_score += play_game(guess_number, guess_number_opponent);
+        opponent_score += -play_game(guess_number_opponent, guess_number);
+    }
+
+    std::cout &lt;&lt; "Player 1 score: " &lt;&lt; player1_score &lt;&lt; std::endl;
+    std::cout &lt;&lt; "Opponent score: " &lt;&lt; opponent_score &lt;&lt; std::endl;
+
+    return 0;
+}
+</code></pre>
+        </div>
+
+        <!-- C# tab -->
+        <div class="tab-pane fade" id="csharp" role="tabpanel" aria-labelledby="csharp-tab">
+          <p>Sljedeći kod možete pokrenuti u C# kako biste testirali svoj algoritam protiv baseline algoritma.
+            <strong>Važno:</strong> U funkciji <code>guess_number</code> zamijenite trenutni algoritam svojim:
+          </p>
+          <pre><code class="language-csharp">using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public struct Guess {
+        public int Player;
+        public int GuessNumber;
+        public int Response;
+    }
+
+    public static int guess_number(List&lt;Guess&gt; history) {
+        // Ovdje implementirajte svoj algoritam za pogađanje broja.
+        if (history.Count == 0) {
+            return 50;  // Ako nema povijesti, počni s 50
+        }
+
+        var lastGuess = history[history.Count - 1].GuessNumber;
+        var feedback = history[history.Count - 1].Response;
+
+        if (feedback == -1) {
+            return Math.Max(0, lastGuess - 10);
+        } else if (feedback == 1) {
+            return Math.Min(100, lastGuess + 10);
+        }
+
+        return lastGuess;
+    }
+
+    public static int guess_number_opponent(List&lt;Guess&gt; history) {
+        int low = 0, high = 100;
+        foreach (var h in history) {
+            if (h.Response == -1) {
+                high = h.GuessNumber - 1;
+            } else if (h.Response == 1) {
+                low = h.GuessNumber + 1;
+            }
+        }
+        return (low + high) / 2;
+    }
+
+    public static int play_game(Func&lt;List&lt;Guess&gt;, int&gt; player1, Func&lt;List&lt;Guess&gt;, int&gt; player2) {
+        Random rand = new Random();
+        int target = rand.Next(0, 101);
+        var history = new List&lt;Guess&gt;();
+        int rounds = 0;
+
+        while (true) {
+            rounds++;
+            int guess1 = player1(history);
+            history.Add(new Guess { Player = 0, GuessNumber = guess1, Response = (guess1 < target ? 1 : (guess1 > target ? -1 : 0)) });
+            if (guess1 == target) {
+                return 10 - rounds;
+            }
+
+            int guess2 = player2(history);
+            history.Add(new Guess { Player = 1, GuessNumber = guess2, Response = (guess2 < target ? 1 : (guess2 > target ? -1 : 0)) });
+            if (guess2 == target) {
+                return -(10 - rounds);
+            }
+        }
+    }
+
+    public static void Main() {
+        int player1_score = 0;
+        int opponent_score = 0;
+
+        for (int i = 0; i < 50; i++) {
+            player1_score += play_game(guess_number, guess_number_opponent);
+            opponent_score += -play_game(guess_number_opponent, guess_number);
+        }
+
+        Console.WriteLine("Player 1 score: " + player1_score);
+        Console.WriteLine("Opponent score: " + opponent_score);
+    }
+}
+</code></pre>
+        </div>
+      </div>
+
+      <h3>Primjer igre</h3>
+      <div class="game-example-block">
+        <p>Primjer jedne igre:</p>
+        <ul>
+          <li><strong>Igrač 1:</strong> Pogađa 50.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je veći.</li>
+          <li><strong>Igrač 2:</strong> Pogađa 75.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je manji.</li>
+          <li><strong>Igrač 1:</strong> Pogađa 60.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je veći.</li>
+          <li><strong>Igrač 2:</strong> Pogađa 65.</li>
+          <li><strong>Sustav:</strong> Zamišljeni broj je manji.</li>
+          <li><strong>Igrač 1:</strong> Pogađa 63.</li>
+          <li><strong>Sustav:</strong> Pogođeno! Igrač 1 osvaja 5 bodova.</li>
+        </ul>
+      </div>
+
+      <p>Za dodatna pitanja ili podršku kontaktirajte <a
+          href="mailto:marin.bencevic@ferit.hr">marin.bencevic@ferit.hr</a>.
+      </p>
+
+      <div class="cta-section text-center">
+        <h2>Spreman za natjecanje?</h2>
+        <p>Registriraj se i sudjeluj u FERIT Izazovu 2024. Natječi se sa svojim algoritmom u izazovu pogađanja broja i
+          osvoji
+          nagrade!</p>
+        <a href="{% url 'register' %}" class="btn modern-btn-primary btn-lg"><i class="fas fa-user-plus"></i>
+          Registriraj
+          se</a>
+        <a href="{% url 'login' %}" class="btn modern-btn-outline-secondary btn-lg mx-2"><i
+            class="fas fa-sign-in-alt"></i>
+          Prijava</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}
